@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#server-01 agent
+
+eval $("ssh-agent")
+
+ssh-add ~/.ssh/khetech
+
+ssh ubuntu@52.87.232.114
