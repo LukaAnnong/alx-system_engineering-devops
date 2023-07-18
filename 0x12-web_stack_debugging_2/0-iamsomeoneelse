@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# Set a shell for a desired user
-# and execute the "whoami" command
-#
-
-user="$1"
-
-if [ "$user" ] ; then
-    chsh -s "$(which bash)" "$user" && su "$user" -c "whoami"
+# Check if the user argument is provided
+if [ -z "$1" ]; then
+  echo "Please provide a user as an argument."
+  exit 1
 fi
+
+# Run whoami command under the specified user
+sudo -u "$1" whoami
